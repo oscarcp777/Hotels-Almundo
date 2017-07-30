@@ -1,0 +1,13 @@
+.search-widget{
+  border: 1px solid #ccc;
+  margin-left: 20px;
+  color: $gray;
+  padding: 10px 20px 0 20px;
+  p{
+    font-size: 1.1em;
+    font-weight: 400;
+  }
+  li{
+    font-size: .9em;
+  }
+}

@@ -1,0 +1,33 @@
+.filters{
+  .panel{
+    margin-bottom: 3px;
+    .panel-heading{
+      color: $text-title-filters;
+      padding: 20px 15px;
+      .panel-title{
+        text-align: center;
+          a{
+            text-decoration: none;
+            font-size: .9em;
+            span:hover{
+              color: $text-title-filters-hover;
+              cursor: pointer;
+                }
+          }
+      }
+    }
+    .panel-body{
+      border-top: 0 !important;
+      .btn-filter-name{
+        border-radius:0;
+        margin-left: 15px;
+      }
+    }
+  }
+}
+.filters-mobile{
+  background-color: $main-bg;
+}
+.yellow{
+  color: $star-filter-color;
+}

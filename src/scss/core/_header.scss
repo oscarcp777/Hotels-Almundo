@@ -1,0 +1,76 @@
+.am-header {
+  background-color: $header-bg;
+  border-radius: 0;
+  margin-bottom: 0;
+  .navbar-header {
+    height: 80px;
+    float: none;
+    color: #fff;
+    .navbar-toggle {
+      color: #fff;
+      i {
+        font-size: 1.7em;
+        margin-left: 25px;
+      }
+      display: block;
+      @media (min-width: $screen-lg-min) {
+        display: none;
+      }
+    }
+    .logo {
+      padding-top: 15px;
+      padding-left: 30px;
+      @media (min-width: $screen-lg-min) {
+        max-height: 48px;
+      }
+    }
+    .login{
+      font-size: 1.2em;
+      margin-top: -25px;
+    }
+  }
+  .menu{
+        background-color: $menu-bg;
+        border-top: 1px solid rgba(255,255,255,.2);
+        border-bottom: 1px solid rgba(0,44,119,.2);
+          display: none;
+        .navbar-nav{
+           background-color:$menu-bg;
+           margin-bottom: 0;
+           float: none;
+           margin-left: auto;
+           margin-right: auto;
+           width: 1150px;
+           .active{
+             background-color: $navbar-item-active-bg;
+           }
+          li{
+            height: 34px;
+
+            a {
+              padding-top: 5px ;
+              padding-bottom: 5px;
+            color:#fff;
+            font-weight: 700;
+            font-size: 1em;
+            text-decoration: none;
+            &:hover,
+            &:focus{
+                  background-color: $header-bg;
+                  transition: .2s ease-in-out
+                }
+            }
+          }
+        }
+        @media (min-width: $screen-lg-min) {
+          display: block;
+        }
+      }
+}
+
+@media only screen and (max-width: $screen-lg-min) {
+  .am-header .logo img {
+    max-width: 250px;
+    max-height: 28px
+  }
+}

@@ -1,0 +1,14 @@
+
+// Import Bootstrap source files
+@import "bootstrap";
+// Core variables and mixins
+// import scss to slider
+@import "../../node_modules/angularjs-slider/dist/rzslider.scss";
+@import "variables";
+@import "core/footer";
+@import "core/header";
+@import "core/main";
+@import "core/filters";
+@import "core/slider";
+@import "core/searchWidget";
+@import "core/hotel";

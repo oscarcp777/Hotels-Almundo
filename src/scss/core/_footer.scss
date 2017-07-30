@@ -1,0 +1,20 @@
+.am-footer{
+//  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  background-color: $footer-bg;
+  padding: 16px;
+  font-family: $footer-font;
+  .fiscal{
+    float: left;
+    padding-right: 16px;
+  }
+  .info{
+    p{
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
+}

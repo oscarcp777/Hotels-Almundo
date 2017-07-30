@@ -1,0 +1,25 @@
+.custom-slider {
+    .rz-bar {
+      background:$slider-rz-bar !important;
+    }
+    .rz-selection {
+      background: $slider-rz-selection !important;
+    }
+    .rz-tick{
+      background:$slider-rz-bar !important;
+    }
+    .rz-selected{
+      background: $slider-rz-selection !important;
+    }
+    .rz-pointer {
+      bottom: 0;
+      background: #fff;
+      border: 1px solid $slider-rz-selection;
+      border-radius: 8px;
+      width: 16px;
+      height: 32px;
+      &:after {
+        display: none;
+      }
+    }
+}
