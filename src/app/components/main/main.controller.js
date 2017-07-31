@@ -16,26 +16,26 @@ class MainController {
   }
   loadData() {
     this.MainService.getHotels()
-      .then(response => this.hotels = response)
+        .then(response => this.hotels = response)
   }
   updateHotels(event) {
-    console.log('MainController', event);
-    this.hotels = this.reducer(event);
+    this.MainService.getHotels()
+        .then(response => this.hotels = this.reducer(response,event))
   }
 
-  reducer(action) {
+  reducer(state,action) {
     switch (action.type) {
       case 'STAR':
         this.$location.search({'STAR':action.values.toString()});
-        return this.hotels.filter(hotel => action.values.includes(parseInt(hotel.stars)));
+        return state.filter(hotel => action.values.includes(parseInt(hotel.stars)));
       case 'NAME':
         this.$location.search({'NAME':action.name});
-        return this.hotels.filter(hotel => hotel.name.includes(action.name));
+        return state.filter(hotel => hotel.name.includes(action.name));
       case 'PRICE_RANGE':
         this.$location.search({'PRICE_RANGE':`${action.range.max}-${action.range.min}`});
-        return this.hotels.filter(hotel => parseInt(action.range.min) <= parseInt(hotel.price.amount) &&  parseInt(hotel.price.amount)<= parseInt(action.range.max) );
+        return state.filter(hotel => parseInt(action.range.min) <= parseInt(hotel.price.amount) &&  parseInt(hotel.price.amount)<= parseInt(action.range.max) );
       default:
-        return this.hotels;
+        return state;
     }
   }
 }

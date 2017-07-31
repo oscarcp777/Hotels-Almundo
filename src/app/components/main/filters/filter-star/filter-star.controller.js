@@ -16,18 +16,20 @@ class FilterStarController {
 
   applyFilter() {
     let  stars = [];
-    Object.keys(this.starsChecks)
+      Object.keys(this.starsChecks)
          .forEach( key => {
            if(this.starsChecks[key])
              stars.push(parseInt(key))
          });
-         console.log('...........',stars.includes(4));
-    	this.onUpdate({
-        $event: {
-          type: "STAR",
-          values:stars
-        }
-      });
+
+      if(stars.length > 0){
+        	this.onUpdate({
+            $event: {
+              type: "STAR",
+              values:stars
+            }
+          });
+    }
   }
 }
 export default FilterStarController

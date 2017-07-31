@@ -6,12 +6,14 @@ class FilterNameController {
   }
 
   applyFilter() {
+    if(this.name.length > 2){
     	this.onUpdate({
         $event: {
           type: 'NAME',
-          name: this.name 
+          name: this.name
         }
       });
+    }
   }
 }
 export default FilterNameController
