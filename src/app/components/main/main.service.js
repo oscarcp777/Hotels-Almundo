@@ -5,17 +5,18 @@
  */
 
 class MainService {
-  constructor ($http,$location,$stateParams) {
+  constructor ($http,$location,$stateParams,URL_API) {
     this.$http = $http;
     this.$location = $location;
     this.$stateParams = $stateParams;
+    this.urlApi = URL_API;
   }
 
   getHotels () {
     let filters = this.$location.url().includes('?')?`?${this.$location.url().split('?')[0]}`:'';
-    return this.$http.get(`http://localhost:8081/api/hotels/${this.$stateParams.city}${filters}`).then(response => response.data)
+    return this.$http.get(`${this.urlApi}/${this.$stateParams.city}${filters}`).then(response => response.data)
   }
 }
-MainService.$inject = ['$http','$location','$stateParams'];
+MainService.$inject = ['$http','$location','$stateParams','URL_API'];
 
 export default MainService

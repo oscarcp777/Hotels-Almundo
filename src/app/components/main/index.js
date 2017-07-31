@@ -21,6 +21,7 @@ import filters from './filters'
 const main = angular
   .module('app.main', [filters])
   .service('MainService', MainService)
+  .constant('URL_API','http://ec2-13-58-208-162.us-east-2.compute.amazonaws.com:8081/api/hotels')
   .component('main', MainComponent)
   .component('hotelItem', HotelItemComponent)
   .component('hotelList', HotelListComponent)
