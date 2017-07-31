@@ -3,15 +3,29 @@ class FilterStarController {
   constructor () {
     this.open = true;
   }
-  $onChanges(changes) {
-    	if (changes.filters) {
-        this.filters = angular.copy(changes.filters.currentValue);
-      }
+  $onInit(){
+    this.starsChecks = {
+      '1':false,
+      '2':false,
+      '3':false,
+      '4':false,
+      '5':false,
+      'all':false,
+    }
   }
+
   applyFilter() {
+    let  stars = [];
+    Object.keys(this.starsChecks)
+         .forEach( key => {
+           if(this.starsChecks[key])
+             stars.push(parseInt(key))
+         });
+         console.log('...........',stars.includes(4));
     	this.onUpdate({
         $event: {
-          filters: this.filters
+          type: "STAR",
+          values:stars
         }
       });
   }

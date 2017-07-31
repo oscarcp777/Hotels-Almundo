@@ -2,15 +2,6 @@
 class FilterPriceController {
   constructor () {
     this.open = true;
-    this.slider = {
-                  minValue: 20,
-                  maxValue: 480,
-                  options: {
-                    floor: 0,
-                    ceil: 500,
-                    showTicks: true
-                    }
-                };
   }
   $onChanges(changes) {
     	if (changes.filters) {
@@ -20,7 +11,8 @@ class FilterPriceController {
   applyFilter() {
     	this.onUpdate({
         $event: {
-          filters: this.filters
+          type:'PRICE_RANGE',
+          range: this.filters.range
         }
       });
   }

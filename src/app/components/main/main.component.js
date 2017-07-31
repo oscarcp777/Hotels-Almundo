@@ -12,7 +12,7 @@ export const MainComponent = {
       <search-widget></search-widget>
       <div class="row">
         <div class="col-lg-3 col-xs-12">
-          <filters></filters>
+          <filters on-update="$ctrl.updateHotels($event);" ></filters>
         </div>
         <div class="col-lg-9 col-xs-12">
           <select-order disabled="$ctrl.hotels.length === 0"></select-order>

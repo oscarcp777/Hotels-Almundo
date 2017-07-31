@@ -47,7 +47,7 @@ export const HotelItemComponent = {
                 <li><i class="fa fa-check-square-o" aria-hidden="true"></i></i>
               </ul>
             </div>
-            <div  class="rating-summary-ctn">
+            <div  class="rating-summary-ctn visible-lg-block">
               <p class="rating-summary">
                 <img width="80" ng-src="//static.almundo.com/img/logos/tripadvisor/4.0.svg"  alt="trip">
                 <span class="quantity">2177<span>opiniones</span></span>

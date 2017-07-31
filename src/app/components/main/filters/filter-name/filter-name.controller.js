@@ -2,16 +2,14 @@
 class FilterNameController {
   constructor () {
     this.open = true;
+    this.name = '';
   }
-  $onChanges(changes) {
-    	if (changes.filters) {
-        this.filters = angular.copy(changes.filters.currentValue);
-      }
-  }
+
   applyFilter() {
     	this.onUpdate({
         $event: {
-          filters: this.filters
+          type: 'NAME',
+          name: this.name 
         }
       });
   }

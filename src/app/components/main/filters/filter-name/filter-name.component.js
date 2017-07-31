@@ -2,7 +2,6 @@ import controller from './filter-name.controller'
 
 export const FilterNameComponent = {
   bindings: {
-    filters: '<',
     onUpdate:'&'
   },
   controller,
@@ -17,7 +16,7 @@ export const FilterNameComponent = {
             <div class="form-inline">
               <div class="form-group">
                 <div class="input-group">
-                  <input ng-model="$ctrl.filters.nameHotel"  name="nameHotel" type="text" class="form-control" placeholder="Ingrese nombre de hotel">
+                  <input ng-model="$ctrl.name"  name="nameHotel" type="text" class="form-control" placeholder="Ingrese nombre de hotel">
                 </div>
               </div>
               <button type="button"  ng-click="$ctrl.applyFilter()" class="btn btn-primary active btn-filter-name">Aceptar</button>

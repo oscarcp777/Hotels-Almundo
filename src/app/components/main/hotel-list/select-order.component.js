@@ -5,7 +5,7 @@ export const SelectOrderComponent = {
     template: `
         <div class="row" ng-show="$ctrl.disabled">
           <div class="col-md-12 col-xs-12">
-             <div class="view-map">
+             <div class="view-map visible-lg-block">
               <div ng-show="!$ctrl.mapOpen" class="link">
                 <i class="fa fa-map-marker"></i>
                 <span class="text">

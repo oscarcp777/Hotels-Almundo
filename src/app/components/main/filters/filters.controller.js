@@ -5,15 +5,20 @@ class FiltersController{
   }
   $onInit(){
     this.filters = {
-      nameHotel : '',
-      pricesRange : {
-        max : 150,
-        min : 0
-      },
-      stars : 5
+      range : {
+                max : 5000,
+                min : 50,
+                options: {
+                  floor: 0,
+                  ceil: 8000
+                  }
+              }
     };
   }
   updateHotels(event){
+    this.onUpdate({
+      $event: event
+    });
     console.log('updateHotels',event);
   }
 }

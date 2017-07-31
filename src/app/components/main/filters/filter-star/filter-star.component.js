@@ -2,6 +2,9 @@
 import controller from './filter-star.controller'
 
 export const FilterStarComponent = {
+  bindings: {
+    onUpdate:'&'
+  },
   controller,
   template: `
   <uib-accordion>
@@ -11,40 +14,40 @@ export const FilterStarComponent = {
             Estrellas
             <i class="pull-right fa" ng-class="{'fa-caret-down': $ctrl.open, 'fa-caret-up': !$ctrl.open}"></i>
         </uib-accordion-heading>
-        <div class="list-star">
+        <div class="list-star" ng-click="$ctrl.applyFilter()">
           <div class="checkbox">
             <label>
-              <input type="checkbox" value=""/>
+              <input type="checkbox" ng-model="$ctrl.starsChecks.all" />
               Todas las Estrellas (10)
             </label>
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox" value=""/>
+              <input type="checkbox" ng-model="$ctrl.starsChecks['5']"/>
               <stars num="5"></stars>
             </label>
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox" value=""/>
+              <input type="checkbox" ng-model="$ctrl.starsChecks['4']"/>
               <stars num="4"></stars>
             </label>
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox" value=""/>
+              <input type="checkbox" ng-model="$ctrl.starsChecks['3']"/>
               <stars num="3"></stars>
             </label>
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox" value=""/>
+              <input type="checkbox" ng-model="$ctrl.starsChecks['2']"/>
               <stars num="2"></stars>
             </label>
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox" value=""/>
+              <input type="checkbox" ng-model="$ctrl.starsChecks['1']"/>
               <stars num="1"></stars>
             </label>
           </div>

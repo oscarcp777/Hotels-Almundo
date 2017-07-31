@@ -8,13 +8,16 @@
 import controller from './filters.controller'
 
 export const FiltersComponent = {
+  bindings: {
+    onUpdate:'&'
+  },
   controller,
   template: `
   <aside class="sidebar-nav filters visible-lg-block">
     <h5>Filtrar</h5>
-    <filter-name filters="$ctrl.filters" on-update="$ctrl.updateHotels($event);"></filter-name>
-    <filter-price></filter-price>
-    <filter-star></filter-star>
+    <filter-name on-update="$ctrl.updateHotels($event);"></filter-name>
+    <filter-price filters="$ctrl.filters" on-update="$ctrl.updateHotels($event);"></filter-price>
+    <filter-star filters="$ctrl.filters" on-update="$ctrl.updateHotels($event);"></filter-star>
   </aside>
   <aside class="sidebar-nav filters hidden-lg">
     <uib-accordion>
@@ -34,9 +37,9 @@ export const FiltersComponent = {
           Filtrar
           <i class="fa" ng-class="{'fa-caret-up': $ctrl.open, 'fa-caret-down': !$ctrl.open}"></i>
         </uib-accordion-heading>
-          <filter-name filters="$ctrl.filters" on-update="$ctrl.updateHotels($event);"></filter-name>
-          <filter-price></filter-price>
-          <filter-star></filter-star>
+          <filter-name on-update="$ctrl.updateHotels($event);"></filter-name>
+          <filter-price filters="$ctrl.filters" on-update="$ctrl.updateHotels($event);"></filter-price>
+          <filter-star filters="$ctrl.filters" on-update="$ctrl.updateHotels($event);"></filter-star>
       </div>
     </uib-accordion>
   </aside>
