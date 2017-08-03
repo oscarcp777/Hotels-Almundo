@@ -1,7 +1,7 @@
 import express from 'express';
 import body_parser from 'body-parser';
 import bodyParser from 'body-parser';
-import hotelRoutes from './lib/routes/hotelRoutes';
+import routes from './lib/routes/routes';
 import logger from 'morgan';
 import config from 'config';
 import cors from 'cors'
@@ -24,7 +24,8 @@ app.use(bodyParser.json({ type: 'application/json'}));
 
 app.get("/", (req, res) => res.json({message: "Api Hotels Almundo"}));
 
-hotelRoutes(app);
+// Mount API routes
+routes(app);
 
 app.listen(port, () => {
     console.log("Server listening on port:" +port);
