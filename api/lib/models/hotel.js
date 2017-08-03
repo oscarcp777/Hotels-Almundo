@@ -9,9 +9,8 @@ const HotelSchema = new Schema({
       price: {
         amount: {type: Number, required: true },
         code: {type: String, required: true }
-      }
-    },
-    { collection : 'hotels' }
+        }
+      },{ collection : 'hotels' }
     );
 HotelSchema.plugin(mongoosePaginate);
 export default mongoose.model('hotel', HotelSchema);
