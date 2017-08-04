@@ -6520,7 +6520,6 @@ hotel-item .hotel-ctn .price-box-ctn {
   position: relative;
   box-sizing: border-box;
   text-align: center;
-  padding: 24px 24px 0 32px;
   border-left: 1px dashed #CCC;
   min-height: 192px;
   color: #444; }
