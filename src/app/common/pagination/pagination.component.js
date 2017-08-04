@@ -1,10 +1,12 @@
 import template from './pagination.template.html';
+import controller from './pagination.controller';
 
 export const PaginationComponent = {
   bindings:{
     totalItems:'<',
-    currentPage:'<',
-    maxSize:'<'
+    maxSize:'<',
+    onUpdate:'&'
   },
+  controller,
   template
 }

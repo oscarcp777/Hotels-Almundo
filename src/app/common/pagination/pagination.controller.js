@@ -1,5 +1,15 @@
 class PaginationController {
-  constructor() {}
-  
+  constructor(HotelActions) {
+    this.HotelActions = HotelActions;
+    this.currentPage = 1;
+  }
+  applyFilter() {
+    this.onUpdate({
+      $event: {
+        action: this.HotelActions.paginate(this.currentPage)
+      }
+    });
+  }
 }
-export default PaginationController
+PaginationController.$inject = ['HotelActions'];
+export default PaginationController;

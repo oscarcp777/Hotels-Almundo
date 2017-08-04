@@ -3,7 +3,8 @@ import {FILTER_STAR,
         FILTER_PRICE_RANGE,
         LOAD_HOTELS,
         LOAD_FILTERS_TO_URL,
-        UPDATE_TO_URL
+        UPDATE_TO_URL,
+        PAGINATE
 } from './types';
 
 /** @ngInject */
@@ -11,6 +12,9 @@ export default function HotelActions(HotelServices) {
 
   function filterName(name) {
     return {type: FILTER_NAME, name}
+  }
+  function paginate(page) {
+    return {type: PAGINATE, page}
   }
   function filterStar(values) {
     return {type: FILTER_STAR, values}
@@ -52,6 +56,7 @@ export default function HotelActions(HotelServices) {
     loadHotels,
     fetchHotels,
     applyFilter,
-    loadFiltersToUrl
+    loadFiltersToUrl,
+    paginate
   };
 }

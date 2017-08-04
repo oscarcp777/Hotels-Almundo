@@ -1,8 +1,8 @@
 export const filtersToString = (filters,callApi) => {
     var params = new URLSearchParams();
 
+    params.append('offset', filters.offset);
     if(callApi){
-      params.append('offset', filters.offset);
       params.append('limit', filters.limit);
     }
     if (filters.name) {
@@ -23,6 +23,9 @@ export const paramsToFilter = (params,filters) => {
   }
   if(params.star){
     newState.star = params.star.split(',').map(Number);
+  }
+  if(params.offset){
+    newState.offset = params.offset;
   }
   if(params.price_range){
     let range = params.price_range.split('-');

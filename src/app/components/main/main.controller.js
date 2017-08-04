@@ -1,4 +1,4 @@
-
+import { filtersToString } from '../../lib/url.search.params';
 class MainController {
 
   constructor($ngRedux, $scope,HotelActions,$stateParams,$location) {
@@ -11,7 +11,8 @@ class MainController {
       console.log('State: ',state);
       return {
         hotels: state.hotels.results,
-        pagination: state.hotels.pagination
+        pagination: state.hotels.pagination,
+        filters : state.filters
       };
     }
     let disconnect = $ngRedux.connect(mapStateToParams, HotelActions)(this);
@@ -25,6 +26,8 @@ class MainController {
   updateHotels(event) {
     this.applyFilter(event.action);
     this.fetchHotels(this.$stateParams.city);
+    let params=filtersToString(this.filters,false);
+    this.$location.url(`${this.$location.path()}?${params}`);
   }
 };
 
