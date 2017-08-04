@@ -8,7 +8,6 @@ class HotelServices {
   fetchHotels (city,filters) {
     let filtersStr = filtersToString(filters,true);
     let url = `${this.urlApi}?${filtersStr}`;
-    console.log('url ',url);
     return this.$http
           .get(url)
           .then(response => response.data)

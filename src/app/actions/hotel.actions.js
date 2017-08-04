@@ -16,7 +16,6 @@ export default function HotelActions(HotelServices) {
     return {type: FILTER_STAR, values}
   }
   function filterPriceRange(price_range) {
-    console.log('filterPriceRange',price_range);
     return {type: FILTER_PRICE_RANGE, price_range}
   }
 

@@ -4,7 +4,6 @@ class FiltersController{
     this.open=false;
     this.$location = $location;
     const mapStateToParams = (state) =>{
-      console.log('State: ',state);
       return {
         filters: state.filters,
       };

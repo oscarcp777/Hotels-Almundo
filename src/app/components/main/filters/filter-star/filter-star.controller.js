@@ -20,7 +20,6 @@ class FilterStarController {
   }
 
   applyFilter() {
-    console.log('pasoooooo');
     let  stars = [];
       Object.keys(this.starsChecks)
          .forEach( key => {
