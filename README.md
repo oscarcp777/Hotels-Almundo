@@ -13,7 +13,7 @@ http://ec2-13-58-208-162.us-east-2.compute.amazonaws.com/#!/hotels/madrid-128246
 * Chai
 
 ## Para deployar
-* ejecutar mongoimport --db hotels --collection hotels --file "/api/dump/dump20.js" --jsonArray
+* ejecutar mongoimport --db hotels --collection hotels --file "/api/dump/allResult.js" --jsonArray
 * Ir a "/api"
 * npm install
 * npm start
@@ -22,6 +22,7 @@ http://ec2-13-58-208-162.us-east-2.compute.amazonaws.com/#!/hotels/madrid-128246
 # Frontend : App AngularJS 1.6
 ## Tecnologias Utilizadas
 * AngularJS
+* Redux
 * ES6
 * Express
 * Gulp
