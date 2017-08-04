@@ -11,15 +11,24 @@ import { AppComponent } from './app.component'
 import common from './common/common'
 import components from './components/components'
 import  rzModule  from 'angularjs-slider';
+import ngRedux from 'ng-redux';
+import reducers from './reducers';
+import createLogger from 'redux-logger';
+import thunk from 'redux-thunk';
+
 
 const root = angular
   .module('hotelsAlmundo', [
+    ngRedux,
     uiRouter,
     uiBootstrap,
     common,
     components,
     rzModule
   ])
+  .config(($ngReduxProvider) => {
+      $ngReduxProvider.createStoreWith(reducers, [thunk]);
+  })
   .component('hotelsApp', AppComponent)
 
 // Bootstrap the app.

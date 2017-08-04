@@ -8,26 +8,27 @@
 
 import angular from 'angular'
 
-import { HotelItemComponent } from './hotel-item/hotel-item.component'
-import { HotelListComponent } from './hotel-list/hotel-list.component'
+import { HotelItemComponent } from './hotels/hotel-item/hotel-item.component'
+import { HotelsComponent } from './hotels/hotels.component'
 import { MainComponent } from './main.component'
 import { SearchWidgetComponent } from './search-widget/search-widget.component'
-import { SelectOrderComponent } from './hotel-list/select-order.component'
-import { PaginationComponent } from './hotel-list/hotel-pagination.component'
+import { SelectOrderComponent } from './hotels/select-order/select-order.component'
 
-import MainService from './main.service'
 import filters from './filters'
+import HotelActions from '../../actions/hotel.actions'
+import HotelServices from '../../services/hotel.services';
 
 const main = angular
   .module('app.main', [filters])
-  .service('MainService', MainService)
-  .constant('URL_API','http://ec2-13-58-208-162.us-east-2.compute.amazonaws.com:8081/api/hotels')
+  //.constant('URL_API','http://ec2-13-58-208-162.us-east-2.compute.amazonaws.com:8081/api/hotels')
+  .constant('URL_API','http://localhost:8081/api/hotels')
+  .factory('HotelActions', HotelActions)
+  .service('HotelServices', HotelServices)
   .component('main', MainComponent)
   .component('hotelItem', HotelItemComponent)
-  .component('hotelList', HotelListComponent)
+  .component('hotelList', HotelsComponent)
   .component('searchWidget', SearchWidgetComponent)
   .component('selectOrder', SelectOrderComponent)
-  .component('pagination', PaginationComponent)
   .config(($stateProvider, $urlRouterProvider) => {
     $stateProvider
       .state('main', {

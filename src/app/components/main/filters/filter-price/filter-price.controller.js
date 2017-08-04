@@ -1,6 +1,7 @@
 
 class FilterPriceController {
-  constructor () {
+  constructor (HotelActions) {
+    this.HotelActions= HotelActions;
     this.open = true;
   }
   $onChanges(changes) {
@@ -9,12 +10,13 @@ class FilterPriceController {
       }
   }
   applyFilter() {
-    	this.onUpdate({
-        $event: {
-          type:'PRICE_RANGE',
-          range: this.filters.range
+    this.onUpdate({
+      $event: {
+        action:this.HotelActions.filterPriceRange(this.filters.price_range)
         }
-      });
+    });
+
   }
 }
+FilterPriceController.$inject = ['HotelActions'];
 export default FilterPriceController

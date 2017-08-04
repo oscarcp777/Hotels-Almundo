@@ -22,8 +22,8 @@ class HotelController {
     if(query.star){
       newQuery.push({stars : { $in: query.star.split(',').map(Number) }});
     }
-    if(query.range_price){
-      let range = query.range_price.split('-').map(Number);
+    if(query.price_range){
+      let range = query.price_range.split('-').map(Number);
       newQuery.push({"price.amount" : { $gt : range[0], $lt: range[1]}});
     }
     return newQuery.length > 0 ?{$and: newQuery} :{};
@@ -43,7 +43,7 @@ class HotelController {
   getOptions(req) {
     let offset = parseInt(req.query.offset, 10);
     if (Number.isNaN(offset) || offset < 1) {
-      offset = 1;
+      offset = 0;
     }
     let limit = parseInt(req.query.limit, 10);
     if (Number.isNaN(limit)) {

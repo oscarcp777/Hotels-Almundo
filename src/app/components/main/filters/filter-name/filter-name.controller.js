@@ -1,19 +1,20 @@
 
 class FilterNameController {
-  constructor () {
+  constructor (HotelActions) {
+    this.HotelActions= HotelActions;
     this.open = true;
     this.name = '';
   }
 
   applyFilter() {
-    if(this.name.length > 2){
-    	this.onUpdate({
+    if(this.filters.name.length > 2){
+      this.onUpdate({
         $event: {
-          type: 'NAME',
-          name: this.name
-        }
+          action:this.HotelActions.filterName(this.filters.name)
+          }
       });
     }
   }
 }
+FilterNameController.$inject = ['HotelActions'];
 export default FilterNameController

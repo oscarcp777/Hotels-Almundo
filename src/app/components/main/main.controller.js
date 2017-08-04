@@ -1,43 +1,33 @@
-/**
- * components/hotels/main.controller.js
- *
- * Controller for <main> component
- */
 
 class MainController {
-  constructor($stateParams, MainService,$location) {
+
+  constructor($ngRedux, $scope,HotelActions,$stateParams,$location) {
+    this.HotelActions = HotelActions;
     this.$location = $location;
-    this.$stateParams = $stateParams;
     this.hotels = [];
-    this.MainService = MainService;
-    this.loadData();
-    this.currentPage = 1;
     this.maxSize = 5;
+    this.$stateParams=$stateParams
+    function mapStateToParams(state) {
+      console.log('State: ',state);
+      return {
+        hotels: state.hotels.results,
+        pagination: state.hotels.pagination
+      };
+    }
+    let disconnect = $ngRedux.connect(mapStateToParams, HotelActions)(this);
+
+    $scope.$on('$destroy', disconnect); // Cleaning house
   }
-  loadData() {
-    this.MainService.getHotels()
-        .then(response => this.hotels = response)
+  $onInit(){
+    this.loadFiltersToUrl(this.$location.search());
+    this.fetchHotels(this.$stateParams.city);
   }
   updateHotels(event) {
-    this.MainService.getHotels()
-        .then(response => this.hotels = this.reducer(response,event))
+    this.applyFilter(event.action);
+    this.fetchHotels(this.$stateParams.city);
   }
+};
 
-  reducer(state,action) {
-    switch (action.type) {
-      case 'STAR':
-        this.$location.search({'STAR':action.values.toString()});
-        return state.filter(hotel => action.values.includes(parseInt(hotel.stars)));
-      case 'NAME':
-        this.$location.search({'NAME':action.name});
-        return state.filter(hotel => hotel.name.includes(action.name));
-      case 'PRICE_RANGE':
-        this.$location.search({'PRICE_RANGE':`${action.range.max}-${action.range.min}`});
-        return state.filter(hotel => parseInt(action.range.min) <= parseInt(hotel.price.amount) &&  parseInt(hotel.price.amount)<= parseInt(action.range.max) );
-      default:
-        return state;
-    }
-  }
-}
-MainController.$inject = ['$stateParams', 'MainService','$location'];
+
+MainController.$inject = ['$ngRedux', '$scope','HotelActions','$stateParams','$location'];
 export default MainController

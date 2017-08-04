@@ -1,25 +1,27 @@
-
+import { filtersToString } from '../../../lib/url.search.params';
 class FiltersController{
-  constructor(){
+  constructor($ngRedux, $scope,$location) {
     this.open=false;
+    this.$location = $location;
+    const mapStateToParams = (state) =>{
+      console.log('State: ',state);
+      return {
+        filters: state.filters,
+      };
+    }
+    let disconnect = $ngRedux.connect(mapStateToParams, null)(this);
+
+    $scope.$on('$destroy', disconnect); // Cleaning house
   }
-  $onInit(){
-    this.filters = {
-      range : {
-                max : 5000,
-                min : 50,
-                options: {
-                  floor: 0,
-                  ceil: 8000
-                  }
-              }
-    };
-  }
+
   updateHotels(event){
     this.onUpdate({
       $event: event
     });
-    console.log('updateHotels',event);
+    let params=filtersToString(this.filters,false);
+    this.$location.url(`${this.$location.path()}?${params}`);
   }
 }
+FiltersController.$inject = ['$ngRedux', '$scope','$location'];
+
 export default FiltersController;
