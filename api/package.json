@@ -24,6 +24,7 @@
     "config": "^1.26.1",
     "cors": "^2.8.4",
     "express": "^4.15.3",
+    "helmet": "^3.8.1",
     "mongodb": "^2.2.29",
     "mongoose": "^4.11.1",
     "mongoose-paginate": "^5.0.3",
