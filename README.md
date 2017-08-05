@@ -1,5 +1,11 @@
 # Hotels-Almundo
-Ejercicio Perfil Frontend Almundo
+Ejercicio Frontend Almundo  Listado de Hoteles con filtros dinamicos,  AngularJS 1.6 y Redux
+
+agrego unos graficos para entender mejor el flujo de redux
+
+![Screenshot](doc/diagram-redux.gif)
+![Screenshot](doc/diagram-redux-MW.gif)
+
 
 Se deployo la Apliacion en Amazon
 http://ec2-13-58-208-162.us-east-2.compute.amazonaws.com/#!/hotels/madrid-1282466
